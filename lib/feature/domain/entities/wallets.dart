@@ -1,7 +1,7 @@
 import 'package:church_accounting/feature/domain/entities/users.dart';
 import 'package:equatable/equatable.dart';
 
-class WalletsEntity extends Equatable {
+final class WalletsEntity extends Equatable {
   final String id;
   final String name;
   final double balance;

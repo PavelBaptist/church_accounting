@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class UserAvatarEntity extends Equatable {
+final class UserAvatarEntity extends Equatable {
   final String user;
   final String attachment;
 
