@@ -32,12 +32,32 @@ class FinanceBookPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-        padding: const EdgeInsets.only(top: 15),
-        itemBuilder: (context, index) {
-          return listFinances[index];
-        },
-        separatorBuilder: (context, index) => const Divider(),
-        itemCount: listFinances.length);
+    return Stack(
+      children: [
+        Expanded(
+          child: ListView.separated(
+              padding: const EdgeInsets.only(top: 125),
+              itemBuilder: (context, index) {
+                return listFinances[index];
+              },
+              separatorBuilder: (context, index) => const Divider(),
+              itemCount: listFinances.length),
+        ),
+        Positioned(
+          //TODO: - process tab cash register
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.only(left: 10, right: 10, top: 10),
+            height: 100,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 203, 202, 202),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: const Text("Подростковая кассa"),
+          ),
+        )
+      ],
+    );
   }
 }
