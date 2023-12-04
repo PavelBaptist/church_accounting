@@ -6,6 +6,17 @@ import 'package:church_accounting/feature/domain/entities/users.dart';
 import 'package:church_accounting/feature/domain/entities/wallets.dart';
 import 'package:equatable/equatable.dart';
 
+///Финансовая операция.
+/// [id] - идентификатор.
+/// [number] - номер.
+/// [date] - дата совершения.
+/// [sum] - сумма.
+/// [wallet] - кошелёк-владелец.
+/// [comment] - комментарий.
+/// [user] - пользователь-автор.
+/// [typeOperation] - вид расхода.
+/// [type] - тип приход/расход.
+/// [organization] - ораганизация-владелец кошелька.
 final class WalletOpertionsEntity extends Equatable {
   final String id;
   final int number;

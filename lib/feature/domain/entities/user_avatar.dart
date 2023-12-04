@@ -1,5 +1,8 @@
 import 'package:equatable/equatable.dart';
 
+/// Изображение пользователя.
+/// [user] - идентификатор пользователя.
+/// [attachment] - изображение формата BASE64.
 final class UserAvatarEntity extends Equatable {
   final String user;
   final String attachment;
