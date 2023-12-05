@@ -1,7 +1,6 @@
 import 'dart:ffi';
 import 'package:church_accounting/feature/domain/entities/organizations.dart';
 import 'package:church_accounting/feature/domain/entities/type_operations.dart';
-import 'package:church_accounting/feature/domain/entities/user_avatar.dart';
 import 'package:church_accounting/feature/domain/entities/users.dart';
 import 'package:church_accounting/feature/domain/entities/wallets.dart';
 import 'package:equatable/equatable.dart';
