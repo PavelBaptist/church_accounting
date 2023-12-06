@@ -1,0 +1,1 @@
+enum TypeOperation { income, expense }
