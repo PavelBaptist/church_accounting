@@ -1,9 +1,8 @@
 import 'dart:ffi';
-import 'package:church_accounting/feature/domain/entities/organizations.dart';
-import 'package:church_accounting/feature/domain/entities/type_operations.dart';
-import 'package:church_accounting/feature/domain/entities/user_avatar.dart';
-import 'package:church_accounting/feature/domain/entities/users.dart';
-import 'package:church_accounting/feature/domain/entities/wallets.dart';
+import 'package:church_accounting/feature/domain/entities/organization.dart';
+import 'package:church_accounting/feature/domain/entities/type_wallet_operation.dart';
+import 'package:church_accounting/feature/domain/entities/user.dart';
+import 'package:church_accounting/feature/domain/entities/wallet.dart';
 import 'package:equatable/equatable.dart';
 
 ///Финансовая операция.
@@ -17,19 +16,20 @@ import 'package:equatable/equatable.dart';
 /// [typeOperation] - вид расхода.
 /// [type] - тип приход/расход.
 /// [organization] - ораганизация-владелец кошелька.
+
 final class WalletOpertionsEntity extends Equatable {
   final String id;
   final int number;
   final DateTime date;
   final Double sum;
-  final WalletsEntity wallet;
+  final WalletEntity wallet;
   final String comment;
-  final UsersEntity user;
-  final TypeOperationsEntity typeOperation;
+  final UserEntity user;
+  final TypeWalletOperationEntity typeOperation;
   final Type type;
-  final OrganizationsEntity organization;
+  final OrganizationEntity organization;
 
-  WalletOpertionsEntity(
+  const WalletOpertionsEntity(
       this.id,
       this.number,
       this.date,
@@ -42,7 +42,16 @@ final class WalletOpertionsEntity extends Equatable {
       this.organization);
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [
+        id,
+        number,
+        date,
+        sum,
+        wallet,
+        comment,
+        user,
+        typeOperation,
+        type,
+        organization,
+      ];
 }
-
-enum Type { INCOME, EXPENSE }
