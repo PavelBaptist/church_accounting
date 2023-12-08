@@ -10,8 +10,10 @@ class ColorSet {
   late Color green;
   late Color yellow;
   late Color primaryBg;
+  late Color listCellBG;
   late Color secondaryBG;
   late Color dividerColor;
+  late Color backgroundGray;
 }
 
 class LightThemeColors extends ColorSet {
@@ -20,10 +22,12 @@ class LightThemeColors extends ColorSet {
     text = const Color(0xFF2F385E);
     yellow = const Color(0xFFFCC419);
     inactiveText = const Color(0xFFADB5BD);
-    green = const Color(0xFF20C997);
+    green = const Color(0xFF84B7A6);
     primaryBg = const Color(0xFFF5F5FA);
     secondaryBG = const Color(0xFFFFFFFF);
+    listCellBG = const Color(0xFFE7E7E7);
     dividerColor = const Color(0xFFF3F4F6);
+    backgroundGray = const Color(0xE4F3F4F6);
   }
 }
 
@@ -33,10 +37,12 @@ class DarkThemeColors extends ColorSet {
     text = const Color(0xFFFFFFFF);
     inactiveText = const Color(0xFF7D8696);
     yellow = const Color(0xFFFCC419);
-    green = const Color(0xFF20C997);
+    green = const Color(0xFF089C6F);
     primaryBg = const Color(0xFF212630);
     secondaryBG = const Color(0xFF41444F);
+    listCellBG = const Color(0xFF212630);
     dividerColor = const Color(0xFF1A1E25);
+    backgroundGray = const Color(0xFF282E3A);
   }
 }
 

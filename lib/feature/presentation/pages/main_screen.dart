@@ -1,5 +1,6 @@
 import 'package:church_accounting/common/app_colors_theme.dart';
 import 'package:church_accounting/feature/presentation/widgets/buttons/dropdown_button_dialog_widget.dart';
+import 'package:church_accounting/feature/presentation/widgets/wallets_list_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -14,8 +15,8 @@ class _MainPageState extends State<MainPage> {
   final _pageController = PageController();
 
   void onTapped(int index) {
-    // _currentIndex = index;
-    // _pageController.jumpToPage(index);
+    _currentIndex = index;
+    _pageController.jumpToPage(index);
     setState(() {});
   }
 
@@ -23,7 +24,33 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Книга Финансов"),
+        title: InkWell(
+          onTap: () {
+            showModalBottomSheet(
+              isScrollControlled: true,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20)),
+              ),
+              context: context,
+              builder: (context) {
+                return const WalletListWidget();
+              },
+            );
+          },
+          child: const Row(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text("Все операции"),
+              Icon(
+                Icons.arrow_drop_down,
+                size: 20,
+              ),
+            ],
+          ),
+        ),
         centerTitle: true,
         actions: [
           DropdownButtonDialogWidget(
