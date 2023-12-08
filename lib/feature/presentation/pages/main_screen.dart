@@ -1,4 +1,5 @@
 import 'package:church_accounting/common/app_colors_theme.dart';
+import 'package:church_accounting/feature/presentation/widgets/buttons/dropdown_button_dialog_widget.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -25,16 +26,17 @@ class _MainPageState extends State<MainPage> {
         title: const Text("Книга Финансов"),
         centerTitle: true,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            color: Colors.white,
-            onPressed: () {},
-          ),
+          DropdownButtonDialogWidget(
+            iconDataButton: Icons.add,
+            onTapDoIncomeToWallet: () {},
+            onTapDoExpenseFromWallet: () {},
+            onTapDoTransferFromWallet: () {},
+          )
         ],
       ),
       body: PageView(
         controller: _pageController,
-        children: [
+        children: const [
           // FinanceBookPage(),
         ],
       ),
