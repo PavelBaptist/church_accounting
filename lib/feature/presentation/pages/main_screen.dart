@@ -1,5 +1,4 @@
-import 'package:church_accounting/feature/presentation/pages/finance_book_screen.dart';
-import 'package:church_accounting/feature/presentation/pages/settings_screen.dart';
+import 'package:church_accounting/common/app_colors_theme.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -14,29 +13,14 @@ class _MainPageState extends State<MainPage> {
   final _pageController = PageController();
 
   void onTapped(int index) {
-    _currentIndex = index;
-    _pageController.jumpToPage(index);
+    // _currentIndex = index;
+    // _pageController.jumpToPage(index);
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.attach_money_rounded), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.people), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.calendar_month), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
-        ],
-        onTap: (index) {
-          onTapped(index);
-        },
-      ),
       appBar: AppBar(
         title: const Text("Книга Финансов"),
         centerTitle: true,
@@ -51,19 +35,76 @@ class _MainPageState extends State<MainPage> {
       body: PageView(
         controller: _pageController,
         children: [
-          FinanceBookPage(),
-          Container(
-            color: Colors.red,
-          ),
-          Container(
-            color: Colors.green,
-          ),
-          Container(
-            color: Colors.blue,
-          ),
-          const SettingsPage()
+          // FinanceBookPage(),
         ],
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          border: Border(
+            top: BorderSide(
+              color: AppColors.inactiveText,
+              width: 0.1,
+            ),
+          ),
+        ),
+        height: 102,
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _currentIndex,
+          items: [
+            bottomNavigationBarItem(label: 'Контакты', iconData: Icons.home),
+            bottomNavigationBarItem(
+                label: 'Финансы', iconData: Icons.attach_money_rounded),
+            bottomNavigationBarItem(label: 'Склад', iconData: Icons.people),
+            bottomNavigationBarItem(
+                label: 'Планирование', iconData: Icons.calendar_month),
+          ],
+          onTap: (index) {
+            onTapped(index);
+          },
+        ),
       ),
     );
   }
+
+  BottomNavigationBarItem bottomNavigationBarItem({
+    required String label,
+    required IconData iconData,
+  }) {
+    return BottomNavigationBarItem(
+      icon: Padding(
+        padding: const EdgeInsets.only(bottom: 5.0, top: 5),
+        child: Icon(iconData),
+      ),
+      label: label,
+    );
+  }
 }
+
+  // Мок данные
+  // final List<FinancesList> listFinances = [
+  //   const FinancesList(
+  //       isComing: false,
+  //       money: 5000,
+  //       cashRegisterName: "церковная касса",
+  //       article: "на микроволоновку",
+  //       comment: "купил микроволновку ...",
+  //       number: 43225,
+  //       date: "05.05.2009"),
+  //   const FinancesList(
+  //       isComing: false,
+  //       money: 1000,
+  //       cashRegisterName: "подростковая",
+  //       article: "на еду",
+  //       comment: "купил на подросткове...",
+  //       number: 432345,
+  //       date: "05.05.2023"),
+  //   const FinancesList(
+  //       isComing: true,
+  //       money: 100000000000,
+  //       cashRegisterName: "молодежная касса",
+  //       article: "на еду",
+  //       comment: "пожертвование на еду...",
+  //       number: 123,
+  //       date: "12.04.2024"),
+  // ];
