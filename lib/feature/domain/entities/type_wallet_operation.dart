@@ -1,4 +1,5 @@
 import 'package:church_accounting/feature/domain/entities/organization.dart';
+import 'package:church_accounting/feature/domain/entities/enums/type_operation.dart';
 import 'package:equatable/equatable.dart';
 
 /// Вид финансовой операции.
@@ -6,14 +7,16 @@ import 'package:equatable/equatable.dart';
 /// [name] - название статьи доходов/расходов.
 /// [type] - тип операции приход/расход.
 /// [organization] - идентификатор организации.
-final class TypeOperationsEntity extends Equatable {
+
+final class TypeWalletOperationEntity extends Equatable {
   final String id;
   final String name;
-  final Type type;
+  final TypeOperation type;
   final OrganizationEntity organization;
 
-  TypeOperationsEntity(this.id, this.name, this.type, this.organization);
+  const TypeWalletOperationEntity(
+      this.id, this.name, this.type, this.organization);
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [id, name, type, organization];
 }

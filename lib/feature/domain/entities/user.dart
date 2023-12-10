@@ -7,15 +7,15 @@ import 'package:equatable/equatable.dart';
 /// [id] - идентификатор пользователя.
 /// [imgAvatar] - ссылка на изображение пользователя.
 /// [organization] - организация пользователя.
-final class UsersEntity extends Equatable {
+
+final class UserEntity extends Equatable {
   final String name;
   final String id;
   final UserAvatarEntity imgAvatar;
-  final OrganizationsEntity organization;
+  final OrganizationEntity organization;
 
-  UsersEntity(this.name, this.id, this.imgAvatar, this.organization);
+  const UserEntity(this.name, this.id, this.imgAvatar, this.organization);
 
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [name, id, imgAvatar, organization];
 }
