@@ -1,4 +1,4 @@
-import 'package:church_accounting/feature/domain/entities/organizations.dart';
+import 'package:church_accounting/feature/domain/entities/organization.dart';
 import 'package:church_accounting/feature/domain/entities/user_avatar.dart';
 import 'package:equatable/equatable.dart';
 

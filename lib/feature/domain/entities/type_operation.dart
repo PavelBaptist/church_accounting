@@ -1,8 +1,8 @@
-import 'package:church_accounting/feature/domain/entities/organizations.dart';
+import 'package:church_accounting/feature/domain/entities/organization.dart';
 import 'package:equatable/equatable.dart';
 
 /// Вид финансовой операции.
-/// [id] - идентификатор операции. 
+/// [id] - идентификатор операции.
 /// [name] - название статьи доходов/расходов.
 /// [type] - тип операции приход/расход.
 /// [organization] - идентификатор организации.

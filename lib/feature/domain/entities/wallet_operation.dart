@@ -1,8 +1,8 @@
 import 'dart:ffi';
-import 'package:church_accounting/feature/domain/entities/organizations.dart';
-import 'package:church_accounting/feature/domain/entities/type_operations.dart';
-import 'package:church_accounting/feature/domain/entities/users.dart';
-import 'package:church_accounting/feature/domain/entities/wallets.dart';
+import 'package:church_accounting/feature/domain/entities/organization.dart';
+import 'package:church_accounting/feature/domain/entities/type_operation.dart';
+import 'package:church_accounting/feature/domain/entities/user.dart';
+import 'package:church_accounting/feature/domain/entities/wallet.dart';
 import 'package:equatable/equatable.dart';
 
 ///Финансовая операция.
