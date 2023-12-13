@@ -17,7 +17,7 @@ import 'package:equatable/equatable.dart';
 /// [type] - тип приход/расход.
 /// [organization] - ораганизация-владелец кошелька.
 
-final class WalletOpertionsEntity extends Equatable {
+final class WalletOpertionEntity extends Equatable {
   final String id;
   final int number;
   final DateTime date;
@@ -29,7 +29,7 @@ final class WalletOpertionsEntity extends Equatable {
   final Type type;
   final OrganizationEntity organization;
 
-  const WalletOpertionsEntity(
+  const WalletOpertionEntity(
       this.id,
       this.number,
       this.date,
