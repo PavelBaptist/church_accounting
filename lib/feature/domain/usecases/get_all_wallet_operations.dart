@@ -8,6 +8,6 @@ class GetAllWalletOperations {
 
   GetAllWalletOperations(this.walletOperationRepository);
   Future<Either<Failure, List<WalletOpertionEntity>>> call() async {
-    return await walletOperationRepository.getAllWalletsOperation();
+    return await walletOperationRepository.getAllWalletOperations();
   }
 }

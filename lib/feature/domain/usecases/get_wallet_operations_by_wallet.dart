@@ -7,7 +7,7 @@ class GetWalletOperationsByWallet {
   final WalletOperationRepository walletOperationRepository;
 
   GetWalletOperationsByWallet(this.walletOperationRepository);
-  Future<Either<Failure, List<WalletOpertionEntity>>> call(id) async {
-    return await walletOperationRepository.getWalletsOperation(id);
+  Future<Either<Failure, List<WalletOpertionEntity>>> call(String id) async {
+    return await walletOperationRepository.getWalletOperationsByWallet(id);
   }
 }
