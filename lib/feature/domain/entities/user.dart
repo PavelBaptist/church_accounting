@@ -8,13 +8,18 @@ import 'package:equatable/equatable.dart';
 /// [imgAvatar] - ссылка на изображение пользователя.
 /// [organization] - организация пользователя.
 
-final class UserEntity extends Equatable {
+class UserEntity extends Equatable {
   final String name;
   final String id;
   final UserAvatarEntity imgAvatar;
   final OrganizationEntity organization;
 
-  const UserEntity(this.name, this.id, this.imgAvatar, this.organization);
+  const UserEntity({
+    required this.name,
+    required this.id,
+    required this.imgAvatar,
+    required this.organization,
+  });
 
   @override
   List<Object?> get props => [name, id, imgAvatar, organization];

@@ -11,7 +11,7 @@ import 'package:equatable/equatable.dart';
 /// [watchers] - наблюдатели кассы.
 /// [organization] - орагнизация-владелец.
 
-final class WalletEntity extends Equatable {
+class WalletEntity extends Equatable {
   final String id;
   final String name;
   final double balance;
@@ -20,15 +20,15 @@ final class WalletEntity extends Equatable {
   final List<UserEntity> watchers;
   final OrganizationEntity organization;
 
-  const WalletEntity(
-    this.id,
-    this.name,
-    this.balance,
-    this.isActive,
-    this.holder,
-    this.watchers,
-    this.organization,
-  );
+  const WalletEntity({
+    required this.id,
+    required this.name,
+    required this.balance,
+    required this.isActive,
+    required this.holder,
+    required this.watchers,
+    required this.organization,
+  });
 
   @override
   List<Object?> get props =>

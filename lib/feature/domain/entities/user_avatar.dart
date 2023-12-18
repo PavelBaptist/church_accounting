@@ -5,11 +5,11 @@ import 'package:equatable/equatable.dart';
 /// [user] - идентификатор пользователя.
 /// [attachment] - изображение формата BASE64.
 
-final class UserAvatarEntity extends Equatable {
+class UserAvatarEntity extends Equatable {
   final UserEntity user;
   final String attachment;
 
-  const UserAvatarEntity(this.user, this.attachment);
+  const UserAvatarEntity({required this.user, required this.attachment});
 
   @override
   List<Object?> get props => [user, attachment];
