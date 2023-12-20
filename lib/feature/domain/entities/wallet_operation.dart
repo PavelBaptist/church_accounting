@@ -1,4 +1,4 @@
-import 'dart:ffi';
+import 'package:church_accounting/feature/domain/entities/enums/type_operation.dart';
 import 'package:church_accounting/feature/domain/entities/organization.dart';
 import 'package:church_accounting/feature/domain/entities/type_wallet_operation.dart';
 import 'package:church_accounting/feature/domain/entities/user.dart';
@@ -21,12 +21,12 @@ final class WalletOpertionEntity extends Equatable {
   final String id;
   final int number;
   final DateTime date;
-  final Double sum;
+  final double sum;
   final WalletEntity wallet;
   final String comment;
   final UserEntity user;
   final TypeWalletOperationEntity typeOperation;
-  final Type type;
+  final TypeOperation type;
   final OrganizationEntity organization;
 
   const WalletOpertionEntity(
