@@ -30,16 +30,16 @@ final class WalletOpertionEntity extends Equatable {
   final OrganizationEntity organization;
 
   const WalletOpertionEntity(
-      this.id,
-      this.number,
-      this.date,
-      this.sum,
-      this.wallet,
-      this.comment,
-      this.user,
-      this.typeOperation,
-      this.type,
-      this.organization);
+      {required this.id,
+      required this.number,
+      required this.date,
+      required this.sum,
+      required this.wallet,
+      required this.comment,
+      required this.user,
+      required this.typeOperation,
+      required this.type,
+      required this.organization});
 
   @override
   List<Object?> get props => [
