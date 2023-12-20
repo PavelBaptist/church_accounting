@@ -9,15 +9,12 @@ part 'user_model.g.dart';
 class UserModel extends UserEntity {
   @JsonKey(name: 'organization')
   final OrganizationModel organizationModel;
-  @JsonKey(name: 'imgAvatar')
-  final UserAvatarModel userAvatarModel;
 
   const UserModel({
     required super.name,
     required super.id,
-    required this.userAvatarModel,
     required this.organizationModel,
-  }) : super(imgAvatar: userAvatarModel, organization: organizationModel);
+  }) : super(organization: organizationModel);
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
