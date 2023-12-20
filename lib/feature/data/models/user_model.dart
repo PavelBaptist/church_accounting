@@ -1,5 +1,4 @@
 import 'package:church_accounting/feature/data/models/organization_model.dart';
-import 'package:church_accounting/feature/data/models/user_avatar_model.dart';
 import 'package:church_accounting/feature/domain/entities/user.dart';
 import 'package:json_annotation/json_annotation.dart';
 
