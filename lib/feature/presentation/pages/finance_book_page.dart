@@ -70,20 +70,6 @@ final class MockData {
       this.typeOperation,
       this.type,
       this.organization);
-
-  @override
-  List<Object?> get props => [
-        id,
-        number,
-        date,
-        sum,
-        wallet,
-        comment,
-        user,
-        typeOperation,
-        type,
-        organization,
-      ];
 }
 
 final List<MockData> mockData = [
