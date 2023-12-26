@@ -12,7 +12,7 @@ final class TypeOperationsEntity extends Equatable {
   final Type type;
   final OrganizationEntity organization;
 
-  TypeOperationsEntity(this.id, this.name, this.type, this.organization);
+  const TypeOperationsEntity(this.id, this.name, this.type, this.organization);
 
   @override
   List<Object?> get props => [];
