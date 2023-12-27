@@ -43,7 +43,6 @@ basic auth
 * `name` - `string` - Имя пользователь
 * `id` - `string` - GUID4 (пример: `"4d182871-a8b0-469c-ad67-cfb35960ce40"`)
 * `img_avatar` - ref `user_avatar` - Аватар пользователя
-* `organization` - `string` - Идентификатор `organizations`
 
 ---
 ### current_user
