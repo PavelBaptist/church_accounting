@@ -10,13 +10,11 @@ WalletModel _$WalletModelFromJson(Map<String, dynamic> json) => WalletModel(
       id: json['id'] as String,
       name: json['name'] as String,
       balance: (json['balance'] as num).toDouble(),
-      isActive: json['isActive'] as bool,
-      holderModel: UserModel.fromJson(json['holder'] as Map<String, dynamic>),
-      watchersModel: (json['watchers'] as List<dynamic>)
-          .map((e) => UserModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      organizationModel: OrganizationModel.fromJson(
-          json['organization'] as Map<String, dynamic>),
+      isActiveModel: json['is_active'] as bool,
+      holderModel: json['holder'] as String,
+      watchersModel:
+          (json['watchers'] as List<dynamic>).map((e) => e as String).toList(),
+      organizationModel: json['organization'] as String,
     );
 
 Map<String, dynamic> _$WalletModelToJson(WalletModel instance) =>
@@ -24,8 +22,8 @@ Map<String, dynamic> _$WalletModelToJson(WalletModel instance) =>
       'id': instance.id,
       'name': instance.name,
       'balance': instance.balance,
-      'isActive': instance.isActive,
       'holder': instance.holderModel,
       'watchers': instance.watchersModel,
       'organization': instance.organizationModel,
+      'is_active': instance.isActiveModel,
     };

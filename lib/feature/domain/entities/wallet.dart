@@ -16,9 +16,9 @@ class WalletEntity extends Equatable {
   final String name;
   final double balance;
   final bool isActive;
-  final UserEntity holder;
-  final List<UserEntity> watchers;
-  final OrganizationEntity organization;
+  final String holder;
+  final List<String> watchers;
+  final String organization;
 
   const WalletEntity({
     required this.id,

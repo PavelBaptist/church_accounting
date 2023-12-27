@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 void main(List<String> args) {
   AppColors = DarkColors; // Темная тема
-  AppColors = LightColors; // Светлая тема
+  // AppColors = LightColors; // Светлая тема
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
     [
