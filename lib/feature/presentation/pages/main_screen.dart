@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:church_accounting/common/app_colors_theme.dart';
 import 'package:church_accounting/feature/presentation/widgets/buttons/dropdown_button_dialog_widget.dart';
 import 'package:church_accounting/feature/presentation/widgets/wallets_list_bottom_sheet.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -63,8 +66,8 @@ class _MainPageState extends State<MainPage> {
       ),
       body: PageView(
         controller: _pageController,
-        children: const [
-          // FinanceBookPage(),
+        children: [
+          Test(),
         ],
       ),
       bottomNavigationBar: Container(
@@ -110,30 +113,34 @@ class _MainPageState extends State<MainPage> {
   }
 }
 
-  // Мок данные
-  // final List<FinancesList> listFinances = [
-  //   const FinancesList(
-  //       isComing: false,
-  //       money: 5000,
-  //       cashRegisterName: "церковная касса",
-  //       article: "на микроволоновку",
-  //       comment: "купил микроволновку ...",
-  //       number: 43225,
-  //       date: "05.05.2009"),
-  //   const FinancesList(
-  //       isComing: false,
-  //       money: 1000,
-  //       cashRegisterName: "подростковая",
-  //       article: "на еду",
-  //       comment: "купил на подросткове...",
-  //       number: 432345,
-  //       date: "05.05.2023"),
-  //   const FinancesList(
-  //       isComing: true,
-  //       money: 100000000000,
-  //       cashRegisterName: "молодежная касса",
-  //       article: "на еду",
-  //       comment: "пожертвование на еду...",
-  //       number: 123,
-  //       date: "12.04.2024"),
-  // ];
+class Test extends StatelessWidget {
+  final dio = Dio();
+  Test({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ElevatedButton(
+        onPressed: getHttp,
+        child: const Text('Показать'),
+      ),
+    );
+  }
+
+  void getHttp() async {
+    String admin = 'Администратор';
+    String password = '';
+
+    String basicAuth = 'Basic ' + base64Encode(utf8.encode('$admin:$password'));
+
+    final response = await dio.get(
+      'https://ceshops.ru:8443/ca_debug/hs/api/wallets',
+      options: Options(
+        headers: {
+          'Authorization': basicAuth,
+        },
+      ),
+    );
+    print(response);
+  }
+}
