@@ -77,11 +77,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: Gothic A1
-      fonts:
-      - asset: fonts/GothicA1-Regular.ttf
-        weight: 400
+  #  fonts:
+  #  - family: Gothic A1
+  #    fonts:
+  #    - asset: fonts/GothicA1-Regular.ttf
+  #      weight: 400
         
   #   - family: Trajan Pro
   #     fonts:

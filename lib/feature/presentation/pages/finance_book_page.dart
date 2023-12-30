@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-// Мок данные
+// TODO:
+// Мок данные удалить и вместо них установить данные по операциям
 final class MockData {
   final String id;
   final int number;
@@ -36,7 +37,8 @@ class FinanceBookPage extends StatefulWidget {
 }
 
 class _FinanceBookPageState extends State<FinanceBookPage> {
-//Мок данные
+// TODO:
+//Мок данные вместо них нужно использовать данные по операциям
   final List<MockData> mockData = [
     MockData(
       '1',
@@ -105,140 +107,144 @@ class _FinanceBookPageState extends State<FinanceBookPage> {
     return Container(
       color: const Color(0xFF212630),
       child: ListView.separated(
+        physics: const BouncingScrollPhysics(),
         itemCount: mockData.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
             width: double.infinity,
-            height: 145.55,
-            padding: const EdgeInsets.fromLTRB(10, 5, 10, 0),
+            padding: const EdgeInsets.all(8),
             margin: const EdgeInsets.all(10.0),
             decoration: const BoxDecoration(
               color: Color(0xFF212630),
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              mainAxisSize: MainAxisSize.max,
+              mainAxisSize: MainAxisSize.min,
               children: [
-                Expanded(
-                  flex: 1,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(
-                        mockData[index].typeOperation.contains('Приход')
-                            ? Icons.arrow_downward
-                            : Icons.arrow_upward,
-                        color: mockData[index].typeOperation.contains('Приход')
-                            ? const Color(0xFF20C997)
-                            : const Color(0xFFFF5D29),
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            mockData[index].user,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontFamily: 'Gothic A1',
-                              fontWeight: FontWeight.w400,
-                              height: 0.08,
-                              letterSpacing: -0.41,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Text(
-                        mockData[index].typeOperation.contains('Приход')
-                            ? '+ ${mockData[index].sum} ₽'
-                            : '- ${mockData[index].sum} ₽',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontFamily: 'Gothic A1',
-                          fontWeight: FontWeight.w500,
-                          height: 0.08,
-                          letterSpacing: -0.41,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        mockData[index].wallet,
-                        textAlign: TextAlign.right,
-                        style: const TextStyle(
-                          color: Color(0xFF7D8696),
-                          fontSize: 14,
-                          fontFamily: 'Gothic A1',
-                          fontWeight: FontWeight.w300,
-                          height: 0.11,
-                          letterSpacing: -0.21,
-                        ),
-                      ),
-                      Text(
-                        mockData[index].type,
-                        style: TextStyle(
-                          color:
-                              mockData[index].typeOperation.contains('Приход')
-                                  ? const Color(0xFF20C997)
-                                  : const Color(0xFFFF5D29),
-                          fontSize: 14,
-                          fontFamily: 'Ghotic A1',
-                          fontWeight: FontWeight.w300,
-                          height: 0.11,
-                          letterSpacing: -0.21,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      mockData[index].typeOperation.contains('Приход')
+                          ? Icons.arrow_downward
+                          : Icons.arrow_upward,
+                      color: mockData[index].typeOperation.contains('Приход')
+                          ? const Color(0xFF20C997)
+                          : const Color(0xFFFF5D29),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          'Комментарий: ${mockData[index].comment}',
-                          overflow: TextOverflow.ellipsis,
-                          softWrap: false,
-                          maxLines: 2,
+                          mockData[index].user,
                           style: const TextStyle(
-                            color: Color(0xFF7D8696),
-                            fontSize: 14,
-                            fontFamily: 'Ghotic A1',
-                            fontWeight: FontWeight.w300,
-                            height: 0.11,
-                            letterSpacing: -0.21,
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontFamily: 'Gothic A1',
+                            fontWeight: FontWeight.w400,
+                            height: 0.08,
+                            letterSpacing: -0.41,
                           ),
                         ),
                       ),
-                      Expanded(
+                    ),
+                    Text(
+                      mockData[index].typeOperation.contains('Приход')
+                          ? '+ ${mockData[index].sum} ₽'
+                          : '- ${mockData[index].sum} ₽',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontFamily: 'Gothic A1',
+                        fontWeight: FontWeight.w500,
+                        height: 0.08,
+                        letterSpacing: -0.41,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 8,
+                  width: double.infinity,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      flex: 8,
+                      child: Align(
+                        alignment: Alignment.centerLeft,
                         child: Text(
-                          '${mockData[index].date.day}.${mockData[index].date.month}.${mockData[index].date.year}',
+                          mockData[index].wallet,
                           textAlign: TextAlign.right,
                           style: const TextStyle(
                             color: Color(0xFF7D8696),
                             fontSize: 14,
                             fontFamily: 'Gothic A1',
-                            fontWeight: FontWeight.w400,
-                            height: 0.11,
-                            letterSpacing: -0.21,
+                            fontWeight: FontWeight.w300,
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    Expanded(
+                      flex: 5,
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          mockData[index].type.length > 14
+                              ? '${mockData[index].type.substring(0, 14)}...'
+                              : mockData[index].type,
+                          style: TextStyle(
+                            color:
+                                mockData[index].typeOperation.contains('Приход')
+                                    ? const Color(0xFF20C997)
+                                    : const Color(0xFFFF5D29),
+                            fontSize: 14,
+                            fontFamily: 'Ghotic A1',
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                // Добавь другие виджеты, если необходимо
+                const SizedBox(
+                  height: 31,
+                  width: double.infinity,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'Комментарий: ${mockData[index].comment}',
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        style: const TextStyle(
+                          color: Color(0xFF7D8696),
+                          fontSize: 14,
+                          fontFamily: 'Ghotic A1',
+                          fontWeight: FontWeight.w300,
+                          letterSpacing: -0.21,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        '${mockData[index].date.day}.${mockData[index].date.month}.${mockData[index].date.year}',
+                        textAlign: TextAlign.right,
+                        style: const TextStyle(
+                          color: Color(0xFF7D8696),
+                          fontSize: 14,
+                          fontFamily: 'Gothic A1',
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: -0.21,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           );
