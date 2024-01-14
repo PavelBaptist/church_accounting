@@ -33,4 +33,6 @@ class AppIcons {
       IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData group =
       IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData vector =
+      IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
