@@ -1,4 +1,5 @@
 import 'package:church_accounting/common/app_colors_theme.dart';
+import 'package:church_accounting/common/icons/app__icons.dart';
 import 'package:church_accounting/feature/presentation/widgets/buttons/dropdown_button_dialog_widget.dart';
 import 'package:church_accounting/feature/presentation/widgets/wallets_list_bottom_sheet.dart';
 import 'package:flutter/material.dart';
@@ -81,12 +82,15 @@ class _MainPageState extends State<MainPage> {
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
           items: [
-            bottomNavigationBarItem(label: 'Контакты', iconData: Icons.home),
             bottomNavigationBarItem(
-                label: 'Финансы', iconData: Icons.attach_money_rounded),
-            bottomNavigationBarItem(label: 'Склад', iconData: Icons.people),
+              label: 'Контакты',
+              iconData: AppIcons.house,
+            ),
             bottomNavigationBarItem(
-                label: 'Планирование', iconData: Icons.calendar_month),
+                label: 'Финансы', iconData: AppIcons.wallet),
+            bottomNavigationBarItem(label: 'Склад', iconData: AppIcons.chart),
+            bottomNavigationBarItem(
+                label: 'Планирование', iconData: AppIcons.group),
           ],
           onTap: (index) {
             onTapped(index);

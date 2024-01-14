@@ -41,6 +41,7 @@ dependencies:
   dropdown_button2: ^2.3.9
   dartz: ^0.10.1
   json_annotation: ^4.8.1
+  flutter_svg: ^2.0.9
   
 dev_dependencies:
   flutter_test:
@@ -68,6 +69,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   # assets:
+  #     - assets/images/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
@@ -82,10 +84,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: App_Icons
+      fonts:
+        - asset: lib/common/fonts/App_icons.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
