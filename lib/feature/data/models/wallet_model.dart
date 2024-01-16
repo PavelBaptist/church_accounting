@@ -8,17 +8,19 @@ part 'wallet_model.g.dart';
 @JsonSerializable()
 class WalletModel extends WalletEntity {
   @JsonKey(name: 'holder')
-  final UserModel holderModel;
+  final String holderModel;
   @JsonKey(name: 'watchers')
-  final List<UserModel> watchersModel;
+  final List<String> watchersModel;
   @JsonKey(name: 'organization')
-  final OrganizationModel organizationModel;
+  final String organizationModel;
+  @JsonKey(name: 'is_active')
+  final bool isActiveModel;
 
   const WalletModel({
     required super.id,
     required super.name,
     required super.balance,
-    required super.isActive,
+    required this.isActiveModel,
     required this.holderModel,
     required this.watchersModel,
     required this.organizationModel,
@@ -26,6 +28,7 @@ class WalletModel extends WalletEntity {
           holder: holderModel,
           watchers: watchersModel,
           organization: organizationModel,
+          isActive: isActiveModel,
         );
 
   factory WalletModel.fromJson(Map<String, dynamic> json) =>

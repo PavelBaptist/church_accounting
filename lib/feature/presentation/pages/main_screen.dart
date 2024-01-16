@@ -1,24 +1,14 @@
 import 'package:church_accounting/common/app_colors_theme.dart';
+import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/wallets_list_bloc.dart';
+import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/wallets_list_event.dart';
+import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/wallets_list_state.dart';
 import 'package:church_accounting/feature/presentation/widgets/buttons/dropdown_button_dialog_widget.dart';
 import 'package:church_accounting/feature/presentation/widgets/wallets_list_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MainPage extends StatefulWidget {
+class MainPage extends StatelessWidget {
   const MainPage({super.key});
-
-  @override
-  State<MainPage> createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  var _currentIndex = 0;
-  final _pageController = PageController();
-
-  void onTapped(int index) {
-    _currentIndex = index;
-    _pageController.jumpToPage(index);
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +52,7 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
       body: PageView(
-        controller: _pageController,
-        children: const [
-          // FinanceBookPage(),
-        ],
+        children: const [],
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
@@ -79,7 +66,7 @@ class _MainPageState extends State<MainPage> {
         height: 102,
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          currentIndex: _currentIndex,
+          currentIndex: 1,
           items: [
             bottomNavigationBarItem(label: 'Контакты', iconData: Icons.home),
             bottomNavigationBarItem(
@@ -88,9 +75,7 @@ class _MainPageState extends State<MainPage> {
             bottomNavigationBarItem(
                 label: 'Планирование', iconData: Icons.calendar_month),
           ],
-          onTap: (index) {
-            onTapped(index);
-          },
+          onTap: (index) {},
         ),
       ),
     );
@@ -109,31 +94,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
-  // Мок данные
-  // final List<FinancesList> listFinances = [
-  //   const FinancesList(
-  //       isComing: false,
-  //       money: 5000,
-  //       cashRegisterName: "церковная касса",
-  //       article: "на микроволоновку",
-  //       comment: "купил микроволновку ...",
-  //       number: 43225,
-  //       date: "05.05.2009"),
-  //   const FinancesList(
-  //       isComing: false,
-  //       money: 1000,
-  //       cashRegisterName: "подростковая",
-  //       article: "на еду",
-  //       comment: "купил на подросткове...",
-  //       number: 432345,
-  //       date: "05.05.2023"),
-  //   const FinancesList(
-  //       isComing: true,
-  //       money: 100000000000,
-  //       cashRegisterName: "молодежная касса",
-  //       article: "на еду",
-  //       comment: "пожертвование на еду...",
-  //       number: 123,
-  //       date: "12.04.2024"),
-  // ];
