@@ -1,12 +1,8 @@
 import 'package:church_accounting/common/app_colors_theme.dart';
 import 'package:church_accounting/feature/presentation/pages/finance_book_page.dart';
-import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/wallets_list_bloc.dart';
-import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/wallets_list_event.dart';
-import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/wallets_list_state.dart';
 import 'package:church_accounting/feature/presentation/widgets/buttons/dropdown_button_dialog_widget.dart';
 import 'package:church_accounting/feature/presentation/widgets/wallets_list_bottom_sheet.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -53,12 +49,10 @@ class MainPage extends StatelessWidget {
         ],
       ),
       body: PageView(
-        controller: _pageController,
         children: const [
           FinanceBookPage(),
           //  Contacts(),
         ],
-
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
