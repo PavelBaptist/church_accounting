@@ -4,11 +4,11 @@ import 'package:equatable/equatable.dart';
 /// [name] - название организации
 /// [id] - идентификатор организации
 
-final class OrganizationEntity extends Equatable {
+class OrganizationEntity extends Equatable {
   final String name;
   final String id;
 
-  const OrganizationEntity(this.name, this.id);
+  const OrganizationEntity({required this.name, required this.id});
 
   @override
   List<Object?> get props => [name, id];

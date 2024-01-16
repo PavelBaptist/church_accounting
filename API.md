@@ -17,7 +17,7 @@ basic auth
 ---
 
 ### wallet_operations
-#### `GET`
+#### `GET` `POST`
 * `id` - `string` - GUID4 (пример: `"4d182871-a8b0-469c-ad67-cfb35960ce40"`)
 * `number` - `int` - Номер операции
 * `date` - `string` - ISO8601 дата операции
@@ -31,7 +31,7 @@ basic auth
 
 ---
 ### type_operations
-#### `GET`
+#### `GET` `POST`
 * `id` - `string` - GUID4 (пример: `"4d182871-a8b0-469c-ad67-cfb35960ce40"`)
 * `name` - `string` - Имя типа операции (статьи доходов/расходов)
 * `type` - `string` - может иметь типы `"INCOME"` - приход, `"EXPENSE"` - расход 
@@ -43,8 +43,15 @@ basic auth
 * `name` - `string` - Имя пользователь
 * `id` - `string` - GUID4 (пример: `"4d182871-a8b0-469c-ad67-cfb35960ce40"`)
 * `img_avatar` - ref `user_avatar` - Аватар пользователя
+
+---
+### current_user
+#### `GET`
+* `name` - `string` - Имя пользователь
+* `id` - `string` - GUID4 (пример: `"4d182871-a8b0-469c-ad67-cfb35960ce40"`)
+* `img_avatar` - ref `user_avatar` - Аватар пользователя
 * `organization` - `string` - Идентификатор `organizations`
-  
+    
 ---
 ### organizations
 #### `GET`
@@ -52,7 +59,7 @@ basic auth
 * `id` - `string` - GUID4 (пример: `"4d182871-a8b0-469c-ad67-cfb35960ce40"`)
 
 ---
-### user_avatar
+### user_avatars
 #### `GET`
 * `user` - `string` - Идентификатор `users`
 * `attachment` - `string` - Изображение в виде строки в формате `BASE64`

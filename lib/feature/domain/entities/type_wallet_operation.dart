@@ -8,14 +8,18 @@ import 'package:equatable/equatable.dart';
 /// [type] - тип операции приход/расход.
 /// [organization] - идентификатор организации.
 
-final class TypeWalletOperationEntity extends Equatable {
+class TypeWalletOperationEntity extends Equatable {
   final String id;
   final String name;
   final TypeOperation type;
   final OrganizationEntity organization;
 
-  const TypeWalletOperationEntity(
-      this.id, this.name, this.type, this.organization);
+  const TypeWalletOperationEntity({
+    required this.id,
+    required this.name,
+    required this.type,
+    required this.organization,
+  });
 
   @override
   List<Object?> get props => [id, name, type, organization];
