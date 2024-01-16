@@ -1,4 +1,5 @@
 import 'package:church_accounting/common/app_colors_theme.dart';
+import 'package:church_accounting/feature/presentation/pages/finance_book_page.dart';
 import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/wallets_list_bloc.dart';
 import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/wallets_list_event.dart';
 import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/wallets_list_state.dart';
@@ -52,7 +53,12 @@ class MainPage extends StatelessWidget {
         ],
       ),
       body: PageView(
-        children: const [],
+        controller: _pageController,
+        children: const [
+          FinanceBookPage(),
+          //  Contacts(),
+        ],
+
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
