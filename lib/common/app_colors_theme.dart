@@ -8,6 +8,7 @@ class ColorSet {
   late Color text;
   late Color inactiveText;
   late Color green;
+  late Color red;
   late Color yellow;
   late Color primaryBg;
   late Color listCellBG;
@@ -21,8 +22,9 @@ class LightThemeColors extends ColorSet {
     active = const Color(0xFF438AF9);
     text = const Color(0xFF2F385E);
     yellow = const Color(0xFFFCC419);
-    inactiveText = const Color(0xFFADB5BD);
+    inactiveText = const Color(0xFF7F848A);
     green = const Color(0xFF84B7A6);
+    red = const Color(0xFFFF5D29);
     primaryBg = const Color(0xFFF5F5FA);
     secondaryBG = const Color(0xFFFFFFFF);
     listCellBG = const Color(0xFFE7E7E7);
@@ -38,6 +40,7 @@ class DarkThemeColors extends ColorSet {
     inactiveText = const Color(0xFF7D8696);
     yellow = const Color(0xFFFCC419);
     green = const Color(0xFF089C6F);
+    red = const Color(0xFFFF5D29);
     primaryBg = const Color(0xFF212630);
     secondaryBG = const Color(0xFF41444F);
     listCellBG = const Color(0xFF212630);
