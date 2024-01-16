@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) => WalletsListBloc(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: AppColors == DarkColors ? DARK_THEME : LIGHT_THEME,
         home: const MainPage(),
       ),

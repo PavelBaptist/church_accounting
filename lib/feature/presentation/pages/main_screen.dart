@@ -76,8 +76,7 @@ class MainPage extends StatelessWidget {
             bottomNavigationBarItem(
                 label: 'Финансы', iconData: AppIcons.wallet),
             bottomNavigationBarItem(label: 'Склад', iconData: AppIcons.chart),
-            bottomNavigationBarItem(
-                label: 'Планирование', iconData: AppIcons.group),
+            bottomNavigationBarItem(label: 'Планы', iconData: AppIcons.group),
           ],
           onTap: (index) {},
         ),
@@ -92,7 +91,10 @@ class MainPage extends StatelessWidget {
     return BottomNavigationBarItem(
       icon: Padding(
         padding: const EdgeInsets.only(bottom: 5.0, top: 5),
-        child: Icon(iconData),
+        child: Icon(
+          iconData,
+          size: 22,
+        ),
       ),
       label: label,
     );
