@@ -1,25 +1,15 @@
 import 'package:church_accounting/common/app_colors_theme.dart';
 import 'package:church_accounting/feature/presentation/pages/finance_book_page.dart';
+import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/wallets_list_bloc.dart';
+import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/wallets_list_event.dart';
+import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/wallets_list_state.dart';
 import 'package:church_accounting/feature/presentation/widgets/buttons/dropdown_button_dialog_widget.dart';
 import 'package:church_accounting/feature/presentation/widgets/wallets_list_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MainPage extends StatefulWidget {
+class MainPage extends StatelessWidget {
   const MainPage({super.key});
-
-  @override
-  State<MainPage> createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  var _currentIndex = 0;
-  final _pageController = PageController();
-
-  void onTapped(int index) {
-    _currentIndex = index;
-    _pageController.jumpToPage(index);
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +58,7 @@ class _MainPageState extends State<MainPage> {
           FinanceBookPage(),
           //  Contacts(),
         ],
+
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
@@ -81,7 +72,7 @@ class _MainPageState extends State<MainPage> {
         height: 102,
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          currentIndex: _currentIndex,
+          currentIndex: 1,
           items: [
             bottomNavigationBarItem(label: 'Контакты', iconData: Icons.home),
             bottomNavigationBarItem(
@@ -90,9 +81,7 @@ class _MainPageState extends State<MainPage> {
             bottomNavigationBarItem(
                 label: 'Планирование', iconData: Icons.calendar_month),
           ],
-          onTap: (index) {
-            onTapped(index);
-          },
+          onTap: (index) {},
         ),
       ),
     );
