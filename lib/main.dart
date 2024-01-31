@@ -1,11 +1,13 @@
 import 'package:church_accounting/common/app_colors_theme.dart';
 import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/wallets_list_bloc.dart';
 import 'package:church_accounting/feature/presentation/pages/main_screen.dart';
+import 'package:church_accounting/locator_service.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:church_accounting/locator_service.dart' as di;
 
-void main(List<String> args) {
+void main(List<String> args) async {
   AppColors = DarkColors; // Темная тема
   // AppColors = LightColors; // Светлая тема
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,6 +17,7 @@ void main(List<String> args) {
       DeviceOrientation.portraitDown,
     ],
   );
+  await di.init();
   runApp(const MyApp());
 }
 
@@ -24,7 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => WalletsListBloc(),
+      create: (BuildContext context) => sl<WalletsListBloc>(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppColors == DarkColors ? DARK_THEME : LIGHT_THEME,
