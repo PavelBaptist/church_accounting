@@ -6,14 +6,9 @@ import 'package:church_accounting/feature/domain/repositories/wallet_repository.
 import 'package:dartz/dartz.dart';
 
 class WalletRepositoryImpl implements WalletRepository {
-  final remoteDataSource = WalletRemoteDataSourceImpl();
-  // final PersonLocalDataSoutce localDataSoutce;
-  // final NetworkInfo networkInfo;
+  final WalletRemoteDataSource remoteDataSource;
 
-  // WalletRepositoryImpl(
-  //     {required this.remoteDataSource,
-  //     required this.localDataSoutce,
-  //     required this.networkInfo});
+  WalletRepositoryImpl({required this.remoteDataSource});
 
   @override
   Future<Either<Failure, List<WalletEntity>>> getAllWallets() {

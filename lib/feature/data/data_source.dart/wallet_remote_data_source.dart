@@ -9,11 +9,9 @@ abstract class WalletRemoteDataSource {
 }
 
 class WalletRemoteDataSourceImpl implements WalletRemoteDataSource {
-  // final http.Client client;
-  // TODO: добавить в конструктор
-  final dio = Dio();
+  final Dio dio;
 
-  // PersonRemoteDataSourceImpl({required this.client});
+  WalletRemoteDataSourceImpl({required this.dio});
 
   @override
   Future<List<WalletModel>> getAllWallets() =>
