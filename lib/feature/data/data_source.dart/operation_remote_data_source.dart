@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 
 abstract class OperationRemoteDataSource {
   Future<List<WalletOpertionModel>> getAllOperations();
-  Future<List<WalletOpertionModel>> getAllOperationsByWallet(String id);
+  Future<List<WalletOpertionModel>> getOperationsByWallet(String id);
 }
 
 class OperationRemoteDataSourceImpl implements OperationRemoteDataSource {
@@ -14,24 +14,23 @@ class OperationRemoteDataSourceImpl implements OperationRemoteDataSource {
 
   @override
   Future<List<WalletOpertionModel>> getAllOperations() =>
-      _getListWalletsOperationsFromUrl(
+      _getAllOperationsFromUrl(
           'https://ceshops.ru:8443/ca_debug/hs/api/wallet_operations');
 
 // TODO: Добавить правильный параметр в url
   @override
-  Future<WalletOpertionModel> getAllOperationsByWallet(String id) =>
-      _getWalletFromUrl(
-          'https://ceshops.ru:8443/ca_debug/hs/api/wallets?name=$id');
+  Future<List<WalletOpertionModel>> getOperationsByWallet(String id) =>
+      _getOperationsByWalletFromUrl(
+          'https://ceshops.ru:8443/ca_debug/hs/api/wallet_operations/$id');
 
-  Future<List<WalletOpertionModel>> _getListWalletsOperationsFromUrl(
-      String url) async {
+  Future<List<WalletOpertionModel>> _getAllOperationsFromUrl(String url) async {
     String admin = 'Администратор';
     String password = '';
 
     String basicAuth = 'Basic ${base64Encode(utf8.encode('$admin:$password'))}';
 
     final response = await dio.get(
-      'https://ceshops.ru:8443/ca_debug/hs/api/wallet_operations',
+      url,
       options: Options(
         headers: {
           'Authorization': basicAuth,
@@ -50,7 +49,8 @@ class OperationRemoteDataSourceImpl implements OperationRemoteDataSource {
     }
   }
 
-  Future<WalletOpertionModel> _getWalletFromUrl(String url) async {
+  Future<List<WalletOpertionModel>> _getOperationsByWalletFromUrl(
+      String url) async {
     String admin = 'Администратор';
     String password = '';
 
@@ -66,8 +66,11 @@ class OperationRemoteDataSourceImpl implements OperationRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      final wallets = response.data;
-      return WalletModel.fromJson(wallets);
+      final operations = response.data;
+
+      return (operations as List)
+          .map((operations) => WalletOpertionModel.fromJson(operations))
+          .toList();
     } else {
       throw Exception();
     }
