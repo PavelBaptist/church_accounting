@@ -7,7 +7,7 @@ import 'package:dartz/dartz.dart';
 class GetAllWalletOperations extends UseCase<List<WalletOpertionEntity>> {
   final WalletOperationRepository walletOperationRepository;
 
-  GetAllWalletOperations(this.walletOperationRepository);
+  GetAllWalletOperations({required this.walletOperationRepository});
   @override
   Future<Either<Failure, List<WalletOpertionEntity>>> call() async {
     return await walletOperationRepository.getAllWalletOperations();

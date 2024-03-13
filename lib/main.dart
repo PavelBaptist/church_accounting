@@ -1,4 +1,5 @@
 import 'package:church_accounting/common/app_colors_theme.dart';
+import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/operations_list_bloc.dart';
 import 'package:church_accounting/feature/presentation/bloc/bloc_wallets_list/wallets_list_bloc.dart';
 import 'package:church_accounting/feature/presentation/pages/main_screen.dart';
 import 'package:church_accounting/locator_service.dart';
@@ -26,8 +27,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) => sl<WalletsListBloc>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<WalletsListBloc>(
+            create: (BuildContext context) => sl<WalletsListBloc>()),
+        BlocProvider<OperationsListBloc>(
+            create: (BuildContext context) => sl<OperationsListBloc>()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppColors == DarkColors ? DARK_THEME : LIGHT_THEME,
