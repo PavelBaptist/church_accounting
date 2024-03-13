@@ -22,7 +22,7 @@ class GetWalletOperationsByWallet
 class WalletIdParams extends Equatable {
   final String id;
 
-  WalletIdParams({required this.id});
+  const WalletIdParams({required this.id});
 
   @override
   // TODO: implement props
