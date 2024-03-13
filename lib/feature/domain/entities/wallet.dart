@@ -1,5 +1,3 @@
-import 'package:church_accounting/feature/domain/entities/organization.dart';
-import 'package:church_accounting/feature/domain/entities/user.dart';
 import 'package:equatable/equatable.dart';
 
 /// Кошелек.

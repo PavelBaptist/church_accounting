@@ -19,65 +19,45 @@ class OperationRepositoryImpl implements WalletOperationRepository {
   @override
   Future<Either<Failure, List<WalletOpertionEntity>>>
       getAllWalletOperations() async {
-    if (await networkInfo.isConnected) {
-      try {
-        final remoteOperations = await remoteDataSource.getAllOperations();
-        return Right(remoteOperations);
-      } on ServerException {
-        return Left(ServerFailure());
-      }
-    } else {
-      return Left(ServerFailure());
-    }
-  }
-
-  @override
-  Future<Either<Failure, List<WalletOpertionEntity>>> getOperationsByWallet(
-      String id) async {
-    if (await networkInfo.isConnected) {
-      try {
-        final remoteOperations = await remoteDataSource.getAllOperations();
-        return Right(remoteOperations);
-      } on ServerException {
-        return Left(ServerFailure());
-      }
-    } else {
-      return Left(ServerFailure());
-    }
-  }
-
-  //TODO: NetworkInfo реализовать в методе _getWallets
-  Future<Either<Failure, List<WalletOpertionModel>>> _getListWallets(
-      Future<List<WalletOpertionModel>> Function() getListWallets) async {
-    try {
-      final remoteWallet = await getListWallets();
-      return Right(remoteWallet);
-    } on Exception {
-      return Left(ServerFailure());
-    }
-  }
-
-  Future<Either<Failure, List<WalletOpertionModel>>> _getWallet(
-      Future<WalletModel> Function() getWallet) async {
-    try {
-      final remoteWallet = await getWallet();
-      return Right(remoteWallet);
-    } on Exception {
-      return Left(ServerFailure());
-    }
+    return _getAllOperations(() {
+      return remoteDataSource.getAllOperations();
+    });
   }
 
   @override
   Future<Either<Failure, List<WalletOpertionEntity>>>
-      getWalletOperationsByWallet(String id) {
-    // TODO: implement getWalletOperationsByWallet
-    throw UnimplementedError();
+      getWalletOperationsByWallet(String id) async {
+    return _getOperationsByWallet(() {
+      return remoteDataSource.getOperationsByWallet(id);
+    });
   }
 
   @override
-  Future<Either<Failure, List<WalletOpertionEntity>>> updateBalance(id, number,
-      date, sum, wallet, comment, user, typeOperationm, type, organization) {
-    // TODO: implement updateBalance
-    throw UnimplementedError();
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+
+  //TODO: NetworkInfo реализовать в методе _getWallets
+  Future<Either<Failure, List<WalletOpertionModel>>> _getAllOperations(
+      Future<List<WalletOpertionModel>> Function() getAllOperations) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteOperations = await getAllOperations();
+        return Right(remoteOperations);
+      } on ServerException {
+        return Left(ServerFailure());
+      }
+    } else {
+      return Left(ServerFailure());
+    }
+  }
+
+  Future<Either<Failure, List<WalletOpertionModel>>> _getOperationsByWallet(
+      Future<List<WalletOpertionModel>> Function()
+          getOperationsByWallet) async {
+    try {
+      final remoteOperations = await getOperationsByWallet();
+      return Right(remoteOperations);
+    } on Exception {
+      return Left(ServerFailure());
+    }
   }
 }
