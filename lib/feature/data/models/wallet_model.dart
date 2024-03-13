@@ -1,5 +1,3 @@
-import 'package:church_accounting/feature/data/models/organization_model.dart';
-import 'package:church_accounting/feature/data/models/user_model.dart';
 import 'package:church_accounting/feature/domain/entities/wallet.dart';
 import 'package:json_annotation/json_annotation.dart';
 
