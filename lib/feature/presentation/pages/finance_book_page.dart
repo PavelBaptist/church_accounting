@@ -21,7 +21,7 @@ class FinanceBookPage extends StatelessWidget {
         child: BlocBuilder<OperationsListBloc, OperationsListState>(
             builder: (context, state) {
           if (state is LoadedOperationsListState) {
-            ListView.separated(
+            return ListView.separated(
               physics: const BouncingScrollPhysics(),
               itemCount: state.listOperations.length,
               itemBuilder: (BuildContext context, int index) {
@@ -39,15 +39,16 @@ class FinanceBookPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Icon(
-                            state.listOperations[index].typeOperation..contains('Расход')
-                                ? Icons.arrow_downward
-                                : Icons.arrow_upward,
-                            color: state.listOperations[index].typeOperation
-                                    .contains('Приход')
-                                ? AppColors.green
-                                : AppColors.red,
-                          ),
+                          // Icon(
+                          //   state.listOperations[index].typeOperation ==
+                          //           TypeOperation.expense
+                          //       ? Icons.arrow_downward
+                          //       : Icons.arrow_upward,
+                          //   color: state.listOperations[index].typeOperation ==
+                          //           TypeOperation.income
+                          //       ? AppColors.green
+                          //       : AppColors.red,
+                          // ),
                           Expanded(
                             flex: 20,
                             child: FittedBox(
@@ -65,25 +66,25 @@ class FinanceBookPage extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 8),
-                          Expanded(
-                            flex: 11,
-                            child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                state.listOperations[index].type
-                                        .contains('Приход')
-                                    ? '+ ${state.listOperations[index].sum} ₽'
-                                    : '- ${state.listOperations[index].sum} ₽',
-                                style: TextStyle(
-                                  color: AppColors.text,
-                                  fontSize: 18,
-                                  fontFamily: 'Gothic A1',
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ),
-                          ),
+                          // Expanded(
+                          //   flex: 11,
+                          //   child: FittedBox(
+                          //     fit: BoxFit.scaleDown,
+                          //     alignment: Alignment.centerRight,
+                          //     child: Text(
+                          //       state.listOperations[index].typeOperation ==
+                          //               TypeOperation.income
+                          //           ? '+ ${state.listOperations[index].sum} ₽'
+                          //           : '- ${state.listOperations[index].sum} ₽',
+                          //       style: TextStyle(
+                          //         color: AppColors.text,
+                          //         fontSize: 18,
+                          //         fontFamily: 'Gothic A1',
+                          //         fontWeight: FontWeight.w600,
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                       const SizedBox(
@@ -111,26 +112,27 @@ class FinanceBookPage extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 8),
-                          Expanded(
-                            flex: 14,
-                            child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                state.listOperations[index].typeOperation
-                                    as String,
-                                style: TextStyle(
-                                  color: state.listOperations[index].type
-                                          .contains('Приход')
-                                      ? AppColors.green
-                                      : AppColors.red,
-                                  fontSize: 12,
-                                  fontFamily: 'Ghotic A1',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ),
-                          ),
+                          // Expanded(
+                          //   flex: 14,
+                          //   child: FittedBox(
+                          //     fit: BoxFit.scaleDown,
+                          //     alignment: Alignment.centerRight,
+                          //     child: Text(
+                          //       state.listOperations[index].typeOperation
+                          //           as String,
+                          //       style: TextStyle(
+                          //         color: state.listOperations[index]
+                          //                     .typeOperation ==
+                          //                 TypeOperation.income
+                          //             ? AppColors.green
+                          //             : AppColors.red,
+                          //         fontSize: 12,
+                          //         fontFamily: 'Ghotic A1',
+                          //         fontWeight: FontWeight.w400,
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                       const SizedBox(
@@ -181,6 +183,12 @@ class FinanceBookPage extends StatelessWidget {
                 );
               },
             );
+          } else if (state is InitialOperationsListState) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return const SizedBox();
           }
         }));
   }

@@ -49,7 +49,7 @@ Future<void> init() async {
   );
 
   // Core
-  sl.registerLazySingleton(() => NetworkInfoImpl(sl()));
+  sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
 
   // External
   sl.registerLazySingleton(() => Dio());
